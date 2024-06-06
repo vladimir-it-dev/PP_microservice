@@ -1,0 +1,47 @@
+server:
+  port: 8088
+  servlet:
+    context-path: /api/history
+management:
+  server:
+    port: 8188
+  endpoint:
+    shutdown:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: health,prometheus
+  metrics:
+    tags:
+      application: ${spring.application.name}
+    export:
+      prometheus:
+        enabled: true
+    distribution:
+      percentiles-histogram:
+        "[http.server.requests]": true
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5434/postgres
+    username: user
+    password: password
+
+  liquibase:
+    default-schema: history
+    change-log: db/changelog/db.changelog-master.yaml
+    enabled: true
+    drop-first: false
+
+  application:
+    name: history-app
+
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
+
+  jpa:
+    show-sql: true
+

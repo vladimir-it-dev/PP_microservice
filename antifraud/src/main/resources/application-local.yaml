@@ -1,0 +1,49 @@
+server:
+  port: 8086
+  servlet:
+    context-path: /api/anti-fraud
+management:
+  server:
+    port: 8186
+  endpoint:
+    shutdown:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  jpa:
+    hibernate:
+      naming:
+        implicit-strategy: com.bank.antifraud.config.PluralImplicitNamingStrategy
+      ddl-auto: validate
+    properties:
+      hibernate:
+        default_schema: anti_fraud
+    show-sql: true
+  datasource:
+    url: jdbc:postgresql://localhost:5434/postgres
+    username: user
+    password: password
+  liquibase:
+    default-schema: anti_fraud
+    change-log: db/changelog/db.changelog-master.yaml
+    enabled: ${LIQUIBASE_ENABLED:true}
+    drop-first: ${LIQUIBASE_DROP_FIRST:false}
+  application:
+    name: anti-fraud-app
+
+fraud:
+  dayLimit: 30000 #ограничение счета на покупки в день
+  monthLimit: 300000 #в календарный месяц
+  onetimePurchase: 15000 #ограничение на разовую покупку
+  recipientCount: 20 #сколько раз указанный счет пополнялся за сутки (разными клиентами)
+
+
+
+
+

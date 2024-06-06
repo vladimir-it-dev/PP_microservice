@@ -1,0 +1,22 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="
+        http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+    <changeSet author="Р" id="1672956301687-1">
+        <addUniqueConstraint columnNames="registration_id"
+                             constraintName="registration_id_unique"
+                             schemaName="profile"
+                             tableName="passport"/>
+        <addUniqueConstraint columnNames="actual_registration_id"
+                             constraintName="actual_registration_id_unique"
+                             schemaName="profile"
+                             tableName="profile"/>
+        <addUniqueConstraint columnNames="passport_id"
+                             constraintName="passport_id_unique"
+                             schemaName="profile"
+                             tableName="profile"/>
+    </changeSet>
+</databaseChangeLog>

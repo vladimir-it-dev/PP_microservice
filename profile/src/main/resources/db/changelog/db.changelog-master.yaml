@@ -1,0 +1,11 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/release-0.1.0.0/changelog-001.xml
+  - include:
+      file: db/changelog/release-0.1.0.0/changelog-002.xml
+  - include:
+      file: db/changelog/release-0.1.0.0/changelog-003.xml
+  - include:
+      file: db/changelog/release-0.1.0.0/changelog-004.xml
+  - include:
+      file: db/changelog/release-0.1.0.0/changelog-005.xml

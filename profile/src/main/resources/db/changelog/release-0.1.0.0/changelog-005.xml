@@ -1,0 +1,16 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="
+        http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+    <changeSet author="Р" id="1672956301689-1">
+        <modifyDataType tableName="registration" columnName="house_number" newDataType="int"/>
+        <modifyDataType tableName="registration" columnName="house_block" newDataType="int"/>
+        <modifyDataType tableName="registration" columnName="flat_number" newDataType="int"/>
+        <modifyDataType tableName="actual_registration" columnName="house_number" newDataType="int"/>
+        <modifyDataType tableName="actual_registration" columnName="house_block" newDataType="int"/>
+        <modifyDataType tableName="actual_registration" columnName="flat_number" newDataType="int"/>
+    </changeSet>
+</databaseChangeLog>
